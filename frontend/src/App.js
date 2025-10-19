@@ -38,7 +38,7 @@ function App() {
       setResult({ status: '⏳ Загружаем данные с сервера...' });
 
       // 👇 Делаем GET-запрос на Django API
-      const response = await fetch(`http://127.0.0.1:8000/api/krisha/${listingId}/`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/krisha/${listingId}`, {
         method: 'GET',
         headers: { 'Accept': 'application/json' },
       });
