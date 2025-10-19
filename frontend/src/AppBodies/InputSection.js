@@ -26,5 +26,3 @@ function InputSection({ onSubmit, error }) {
 }
 
 export default InputSection;
-
-

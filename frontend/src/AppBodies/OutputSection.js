@@ -1,22 +1,29 @@
-function OutputSection({ data, onBack, images}) {
+function OutputSection({ data, onBack }) {
+    if (!data || !data.images) {
+      return (
+        <div className="result-section">
+          <p>{data?.status || "⏳ Загрузка..."}</p>
+        </div>
+      );
+    }
+  
     return (
       <div className="result-section">
         <h2>🏡 Результат</h2>
         <p><strong>Описание:</strong> {data.description}</p>
-        <ul>
-        {images.map((imageString) => (
-            <img 
-                src = {imageString}
-                alt = "photo of the appartment"
-                style={{ width: '300px', borderRadius: '10px' }}
-            />
+  
+        {data.images.map((img, index) => (
+          <img 
+            key={index} 
+            src={img} 
+            alt={`Фото ${index + 1}`} 
+            style={{ width: '200px', borderRadius: '8px', margin: '8px' }}
+          />
         ))}
-        </ul>
   
         <button onClick={onBack}>🔙 Вернуться назад</button>
       </div>
     );
   }
-  
-  export default OutputSection;
-  
+
+export default OutputSection;
